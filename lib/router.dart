@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:zomato_foodapp_design_clone/Configurations/constant.dart';
 import 'package:zomato_foodapp_design_clone/Routes/contacts.dart';
+import 'package:zomato_foodapp_design_clone/Screens/Home/home_page.dart';
 import 'package:zomato_foodapp_design_clone/Screens/Sign_up/sign_up_page.dart';
 import 'package:zomato_foodapp_design_clone/Screens/Verify/verify_page.dart';
 
@@ -15,6 +16,10 @@ class Routing {
         {
           return MaterialPageRoute(builder: (_) =>const VerificationPage());
         }
+         case homePage:
+        {
+          return MaterialPageRoute(builder: (_) =>const HomePage());
+        }
       default:
         {
           return MaterialPageRoute(
@@ -25,7 +30,6 @@ class Routing {
                     title: const Text('Zomato FoodStore'),
                   ),
                   body: Container(
-                    alignment: Alignment.center,
                     height: double.maxFinite,
                     width: double.maxFinite,
                     decoration: const BoxDecoration(gradient: lGradient),

@@ -5,11 +5,18 @@ import 'package:zomato_foodapp_design_clone/Routes/contacts.dart';
 import 'package:zomato_foodapp_design_clone/Tools/buttons.dart';
 import 'package:zomato_foodapp_design_clone/Tools/text_field.dart';
 
-class SignUpPage extends StatelessWidget {
+class SignUpPage extends StatefulWidget {
   const SignUpPage({Key? key}) : super(key: key);
 
   @override
+  State<SignUpPage> createState() => _SignUpPageState();
+}
+
+class _SignUpPageState extends State<SignUpPage> {
+
+  @override
   Widget build(BuildContext context) {
+   
     SizeConfig().init(context);
     // print(SizeConfig.defaultSize); // calculating the size of the screen pixel
     return SafeArea(
