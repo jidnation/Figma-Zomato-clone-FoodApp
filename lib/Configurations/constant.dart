@@ -12,7 +12,15 @@ const LinearGradient lGradient = LinearGradient(
       Color(0xFFDD4A93),
       Color(0xFFEB5965),
     ]);
+final LinearGradient gradient1 = LinearGradient(colors: [
+  const Color(0xffff0000).withOpacity(0.85),
+  const Color(0xffff7a00).withOpacity(0.61)
+]);
 
+final LinearGradient gradient2 = LinearGradient(colors: [
+  const Color(0x9303A1F6),
+  const Color(0xff279AED).withOpacity(0.33)
+]);
 ///sizes
 
 class SizeConfig {

@@ -1,0 +1,52 @@
+{
+    "items": [{
+            "image": "images/bg-image1.png",
+            "title": "Amul",
+            "subTitle": "Desserts, Ice Cream, Beverages",
+            "rating": 4.2,
+            "price": 150
+        },
+        {
+            "image": "images/bg-image2.png",
+            "title": "Tinku Fast Food Center",
+            "subTitle": "Chinese, Italian",
+            "rating": 4.0,
+            "price": 150
+        },
+        {
+            "image": "images/bg-image3.png",
+            "title": "Hanuman Sweets",
+            "subTitle": "Mithai, Beverages",
+            "rating": 4.1,
+            "price": 100
+        },
+        {
+            "image": "images/bg-image4.png",
+            "title": "Pallavi Biryani",
+            "subTitle": "Biryani, North indian, Chinese",
+            "rating": 3.8,
+            "price": 150
+        },
+        {
+            "image": "images/bg-image5.png",
+            "title": "Snacks Corner",
+            "subTitle": "Beverages",
+            "rating": 4.1,
+            "price": 100
+        },
+        {
+            "image": "images/bg-image6.png",
+            "title": "Fired Rice",
+            "subTitle": "Starch, Protein",
+            "rating": 4.2,
+            "price": 250
+        },
+        {
+            "image": "images/bg-image7.png",
+            "title": "Eat Healty",
+            "subTitle": "Healty food",
+            "rating": 4.3,
+            "price": 300
+        }
+    ]
+}

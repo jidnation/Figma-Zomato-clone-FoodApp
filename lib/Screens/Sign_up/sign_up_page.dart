@@ -1,14 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:zomato_foodapp_design_clone/Configurations/constant.dart';
+import 'package:zomato_foodapp_design_clone/Routes/contacts.dart';
 import 'package:zomato_foodapp_design_clone/Tools/buttons.dart';
 import 'package:zomato_foodapp_design_clone/Tools/text_field.dart';
 
-class SignUpPage extends StatelessWidget {
+class SignUpPage extends StatefulWidget {
   const SignUpPage({Key? key}) : super(key: key);
 
   @override
+  State<SignUpPage> createState() => _SignUpPageState();
+}
+
+class _SignUpPageState extends State<SignUpPage> {
+
+  @override
   Widget build(BuildContext context) {
+   
     SizeConfig().init(context);
     // print(SizeConfig.defaultSize); // calculating the size of the screen pixel
     return SafeArea(
@@ -24,18 +32,23 @@ class SignUpPage extends StatelessWidget {
               Positioned(
                 top: SizeConfig.defaultSize * 2,
                 right: SizeConfig.defaultSize,
-                child: Container(
-                    width: 60,
-                    height: 30,
-                    decoration: BoxDecoration(
-                        color: Colors.grey.withOpacity(0.6),
-                        borderRadius: BorderRadius.circular(25)),
-                    child: const Center(
-                      child: Text(
-                        "Skip",
-                        style: TextStyle(color: whiteColor),
-                      ),
-                    )),
+                child: InkWell(
+                  onTap: () {
+                    Navigator.pushNamed(context, homePage);
+                  },
+                  child: Container(
+                      width: 60,
+                      height: 30,
+                      decoration: BoxDecoration(
+                          color: Colors.grey.withOpacity(0.6),
+                          borderRadius: BorderRadius.circular(25)),
+                      child: const Center(
+                        child: Text(
+                          "Skip",
+                          style: TextStyle(color: whiteColor),
+                        ),
+                      )),
+                ),
               ),
               // const Spacer(),
               Positioned.fill(
@@ -55,10 +68,15 @@ class SignUpPage extends StatelessWidget {
                             ]),
                           ),
                           SizedBox(height: SizeConfig.defaultSize * 2),
-                          const Button(
-                            color: Colors.black,
-                            text: 'Send OTP',
-                            width: 0.8,
+                          InkWell(
+                            child: const Button(
+                              color: Colors.black,
+                              text: 'Send OTP',
+                              width: 0.8,
+                            ),
+                            onTap: () {
+                              Navigator.pushNamed(context, verificationPage);
+                            },
                           ),
                           SizedBox(
                             height: SizeConfig.defaultSize * 2,
