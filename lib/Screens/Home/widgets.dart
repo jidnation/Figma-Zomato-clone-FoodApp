@@ -10,7 +10,12 @@ class FoodDetailsList extends StatelessWidget {
   final num rating;
   final num price;
   const FoodDetailsList({
-    Key? key, required this.image, required this.title, required this.subTitle, required this.rating, required this.price,
+    Key? key,
+    required this.image,
+    required this.title,
+    required this.subTitle,
+    required this.rating,
+    required this.price,
   }) : super(key: key);
 
   @override
@@ -26,11 +31,11 @@ class FoodDetailsList extends StatelessWidget {
                 color: Colors.grey.shade400,
                 offset: const Offset(0, 2),
                 blurRadius: 0.1),
-                BoxShadow(
+            BoxShadow(
                 color: Colors.grey.shade400,
                 offset: const Offset(1, 0),
                 blurRadius: 0.4),
-                BoxShadow(
+            BoxShadow(
                 color: Colors.grey.shade400,
                 offset: const Offset(-1, 0),
                 blurRadius: 0.4),
@@ -63,19 +68,19 @@ class FoodDetailsList extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                          Text( title,
-                              style: const TextStyle(
-                                fontSize: 17,
-                                fontWeight: FontWeight.w600,
-                              )),
-                          Text( subTitle,
-                              style: const TextStyle(
-                                fontSize: 14,
-                                fontWeight: FontWeight.w300,
-                              )),
-                        ]),
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(title,
+                                  style: const TextStyle(
+                                    fontSize: 17,
+                                    fontWeight: FontWeight.w600,
+                                  )),
+                              Text(subTitle,
+                                  style: const TextStyle(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w300,
+                                  )),
+                            ]),
                         Column(children: [
                           Container(
                             height: 21,
@@ -130,45 +135,57 @@ class FoodDetailsList extends StatelessWidget {
                           const SizedBox(
                             width: 5,
                           ),
-                          Container(
-                              height: 26,
-                              width: 66,
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(5),
-                                  color: const Color(0xff196b44)),
-                              child: Column(children: [
-                                Container(
-                                    height: 13,
-                                    width: 66,
-                                    decoration: const BoxDecoration(
-                                      borderRadius: BorderRadius.only(
-                                        topRight: Radius.circular(5),
-                                        topLeft: Radius.circular(5),
-                                      ),
-                                      color: Color(0xffedd925),
-                                    ),
-                                    child: const Center(
-                                      child: Text('MAX SAFETY',
-                                          style: TextStyle(
-                                              fontSize: 10,
-                                              fontWeight: FontWeight.w400)),
-                                    )),
-                                const SizedBox(
-                                  height: 13,
-                                  width: 66,
-                                  child: Center(
-                                    child: Text('DELIVERY',
-                                        style: TextStyle(
-                                            color: whiteColor,
-                                            fontSize: 10,
-                                            fontWeight: FontWeight.w400)),
-                                  ),
-                                )
-                              ]))
+                          const MaxDeliveryDesign()
                         ])
                       ]),
                 )
               ]),
+        )
+      ]),
+    );
+  }
+}
+
+class MaxDeliveryDesign extends StatelessWidget {
+  const MaxDeliveryDesign({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 26,
+      width: 66,
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(5),
+          color: const Color(0xff196b44)),
+      child: Column(children: [
+        Container(
+            height: 13,
+            width: 66,
+            decoration: const BoxDecoration(
+              borderRadius: BorderRadius.only(
+                topRight: Radius.circular(5),
+                topLeft: Radius.circular(5),
+              ),
+              color: Color(0xffedd925),
+            ),
+            child: const Center(
+              child: Text('MAX SAFETY',
+                  style: TextStyle(
+                      fontSize: 10,
+                      fontWeight: FontWeight.w400)),
+            )),
+        const SizedBox(
+          height: 13,
+          width: 66,
+          child: Center(
+            child: Text('DELIVERY',
+                style: TextStyle(
+                    color: whiteColor,
+                    fontSize: 10,
+                    fontWeight: FontWeight.w400)),
+          ),
         )
       ]),
     );

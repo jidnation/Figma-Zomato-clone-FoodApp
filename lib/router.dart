@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:zomato_foodapp_design_clone/Configurations/constant.dart';
 import 'package:zomato_foodapp_design_clone/Routes/contacts.dart';
+import 'package:zomato_foodapp_design_clone/Screens/Home/food_detail_page.dart';
 import 'package:zomato_foodapp_design_clone/Screens/Home/home_page.dart';
 import 'package:zomato_foodapp_design_clone/Screens/Sign_up/sign_up_page.dart';
 import 'package:zomato_foodapp_design_clone/Screens/Verify/verify_page.dart';
@@ -10,15 +11,20 @@ class Routing {
     switch (settings.name) {
       case signUpPage:
         {
-          return MaterialPageRoute(builder: (_) =>const SignUpPage());
+          return MaterialPageRoute(builder: (_) => const SignUpPage());
         }
-        case verificationPage:
+      case verificationPage:
         {
-          return MaterialPageRoute(builder: (_) =>const VerificationPage());
+          return MaterialPageRoute(builder: (_) => const VerificationPage());
         }
-         case homePage:
+      case homePage:
         {
-          return MaterialPageRoute(builder: (_) =>const HomePage());
+          return MaterialPageRoute(builder: (_) => const HomePage());
+        }
+      case foodDetailPage:
+        {
+          final argument = settings.arguments;
+          return MaterialPageRoute(builder: (_) => FoodDetailPage(container: argument as Map<String, dynamic>,));
         }
       default:
         {
