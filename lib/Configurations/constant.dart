@@ -21,6 +21,7 @@ final LinearGradient gradient2 = LinearGradient(colors: [
   const Color(0x9303A1F6),
   const Color(0xff279AED).withOpacity(0.33)
 ]);
+
 ///sizes
 
 class SizeConfig {
@@ -36,7 +37,7 @@ class SizeConfig {
     screenWidth = _mediaQueryData.size.width;
     orientation = _mediaQueryData.orientation;
 
-    defaultSize = orientation == Orientation.landscape
+    defaultSize = (orientation == Orientation.landscape)
         ? screenHeight * 0.024
         : screenWidth * 0.024;
   }

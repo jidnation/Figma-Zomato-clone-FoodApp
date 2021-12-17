@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:zomato_foodapp_design_clone/Configurations/constant.dart';
 import 'package:zomato_foodapp_design_clone/Tools/data.dart';
@@ -224,5 +225,208 @@ class FoodsDetailList extends StatelessWidget {
                 color: Colors.green.withOpacity(0.5));
           }),
     );
+  }
+}
+
+
+class Source extends StatelessWidget {
+  final String title;
+  final String imgLocation;
+  final double price;
+  
+  const Source({
+    Key? key, required this.title, required this.imgLocation, required this.price,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 10),
+      child: SizedBox(
+        height: 109,
+        child:
+            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+          Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Container(
+                  padding: const EdgeInsets.all(2),
+                  width: 18,
+                  height: 18,
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      border: Border.all(color: Colors.grey.shade400)),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.green,
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                  ),
+                ),
+                Text(
+                  title ,
+                  style: const TextStyle(
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+                Text(
+                  '\$ $price',
+                  style: const TextStyle(fontWeight: FontWeight.w300, fontSize: 13),
+                ),
+                Row(children: [
+                  Container(
+                    width: 38,
+                    height: 14,
+                    decoration: BoxDecoration(
+                      color: Colors.red.shade100,
+                      border: Border.all(color: Colors.red.shade300),
+                      borderRadius: BorderRadius.circular(3),
+                    ),
+                    child: Center(
+                      child: Text('Must Try',
+                          style: TextStyle(
+                              fontSize: 7,
+                              fontWeight: FontWeight.w700,
+                              color: Colors.red.shade700)),
+                    ),
+                  )
+                ]),
+                RichText(
+                    text: TextSpan(
+                        text: '[Veg Preparation] Spring mix.plant based\n',
+                        style: TextStyle(
+                            color: Colors.grey.shade400, fontSize: 11),
+                        children: const [
+                      TextSpan(text: 'organic...'),
+                      TextSpan(
+                          text: 'read more',
+                          style: TextStyle(color: Colors.black)),
+                    ]))
+              ]),
+          Stack(children: [
+            Container(
+              height: 100,
+              padding: const EdgeInsets.only(bottom: 14),
+              child: Container(
+                  width: 92,
+                  height: 89,
+                  decoration: BoxDecoration(
+                      image: DecorationImage(
+                          image: AssetImage( imgLocation ),
+                          fit: BoxFit.cover),
+                      borderRadius: BorderRadius.circular(5),
+                      border: Border.all(color: Colors.grey.shade200))),
+            ),
+            Positioned(
+                bottom: 0,
+                left: 12,
+                child: Stack(children: [
+                  Container(
+                      width: 70,
+                      height: 30,
+                      decoration: BoxDecoration(
+                        color: Colors.red.shade100,
+                        borderRadius: BorderRadius.circular(5),
+                      ),
+                      child: Center(
+                        child: Text('ADD',
+                            style: TextStyle(
+                              color: Colors.red.shade800,
+                              fontSize: 16,
+                            )),
+                      )),
+                  Positioned(
+                      top: 3,
+                      right: 5,
+                      child: FaIcon(
+                        FontAwesomeIcons.plus,
+                        size: 10,
+                        color: Colors.red.shade900,
+                      )),
+                ]))
+          ])
+        ]),
+      ),
+    );
+  }
+}
+
+class ToggleButton extends StatelessWidget {
+  final String name;
+  const ToggleButton({Key? key, required this.name}) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return Row(children: [
+      Stack(children: [
+        SizedBox(
+          width: 38,
+          height: 19,
+          child: Container(
+              alignment: Alignment.center,
+              margin: const EdgeInsets.symmetric(vertical: 2.5),
+              decoration: BoxDecoration(
+                color: Colors.grey.shade400,
+                borderRadius: BorderRadius.circular(2),
+              )),
+        ),
+        Positioned(
+            top: 0,
+            left: 0,
+            child: Container(
+              width: 19,
+              height: 19,
+              decoration: BoxDecoration(
+                  color: Colors.white,
+                  border: Border.all(width: 1.5, color: Colors.grey.shade500),
+                  borderRadius: BorderRadius.circular(2)),
+            )),
+      ]),
+      const SizedBox(width: 5),
+      Text(name,
+          style: TextStyle(
+              color: Colors.grey.shade600, fontSize: 10, letterSpacing: 0.7))
+    ]);
+  }
+}
+
+class UpperBuild extends StatelessWidget {
+  final String title;
+  final String subTitle;
+  final String svgLocation;
+
+  const UpperBuild(
+      {Key? key,
+      required this.title,
+      required this.subTitle,
+      required this.svgLocation})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(children: [
+      Container(
+          width: 22,
+          height: 22,
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(11),
+              color: Colors.white,
+              border: Border.all(width: 1, color: Colors.grey.shade300)),
+          child: SvgPicture.asset(svgLocation)),
+      const SizedBox(width: 5),
+      RichText(
+          text: TextSpan(
+        text: '$title\n',
+        style: const TextStyle(
+          color: Colors.grey,
+          fontSize: 12,
+          letterSpacing: 1,
+          fontWeight: FontWeight.w800,
+        ),
+        children: [
+          TextSpan(text: subTitle, style: const TextStyle(color: Colors.black))
+        ],
+      ))
+    ]);
   }
 }
