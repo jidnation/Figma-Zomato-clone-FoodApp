@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:zomato_foodapp_design_clone/Tools/genrators.dart';
 
 const List<String> text1 = ['MAX', 'PRO', 'Cuisines', 'Rating', 'Popular'];
 const List<String?> text2 = ['Safety', null, null, null, null];

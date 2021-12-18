@@ -6,6 +6,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:zomato_foodapp_design_clone/Configurations/constant.dart';
 import 'package:zomato_foodapp_design_clone/Configurations/general.dart';
+import 'package:zomato_foodapp_design_clone/Routes/contacts.dart';
 import 'package:zomato_foodapp_design_clone/Screens/Home/widgets.dart';
 import 'package:zomato_foodapp_design_clone/Tools/data.dart';
 import 'package:zomato_foodapp_design_clone/Tools/genrators.dart';
@@ -216,24 +217,39 @@ class _HomePageBodyState extends State<HomePageBody> {
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600)),
             ),
             const SizedBox(height: 15),
-            const FoodsDetailList(),
-            Container(
-              child: BottomNavigationBar(
-                elevation: 0,
-                backgroundColor: whiteColor,
-                selectedItemColor: Colors.grey.shade800,
-                items: [
-                  const BottomNavigationBarItem(icon: FaIcon(FontAwesomeIcons.spa), label: ''),
-                  BottomNavigationBarItem(icon: SvgPicture.asset('icons/shoe.svg'), label: ''),
-                  BottomNavigationBarItem(icon: SvgPicture.asset('icons/pro.svg'), label: ''),
-                  BottomNavigationBarItem(icon: SvgPicture.asset('icons/flashHeart.svg'), label: ''),
-                ]
-                ),
-            )
+            SizedBox(
+              height: 276 * foodsDetailList.length.toDouble(),
+              width: SizeConfig.screenWidth,
+              child: ListView.builder(
+                  physics: const NeverScrollableScrollPhysics(),
+                  shrinkWrap: true,
+                  itemCount: foodsDetailList.length,
+                  itemBuilder: (context, index) {
+                    // print(foodsDetailList);
+                    if (foodsDetailList.isNotEmpty) {
+                      var contain = foodsDetailList[index];
+                      return Column(children: [
+                        GestureDetector(
+                          child: FoodDetailsList(
+                              image: contain['image'],
+                              title: contain['title'],
+                              subTitle: contain['subTitle'],
+                              rating: contain['rating'],
+                              price: contain['price']),
+                          onTap: () {
+                            Navigator.pushNamed(context, foodDetailPage, arguments: contain);
+                          },
+                        ),
+                        const SizedBox(height: 25),
+                      ]);
+                    }
+                    return CircularProgressIndicator(
+                        color: Colors.green.withOpacity(0.5));
+                  }),
+            ),
           ]),
         ),
       ]),
     );
   }
 }
-
