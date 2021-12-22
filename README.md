@@ -1,5 +1,7 @@
 # zomato_foodapp_design_clone
 
+link to the figma design: https://www.figma.com/file/z6JUWQG3KJxFuXRD6Slc1E/Zomato-App-Design-Clone-(Community)?node-id=70%3A565
+
 A new Flutter project.
 
 ## Getting Started
